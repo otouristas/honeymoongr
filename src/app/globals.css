@@ -1,26 +1,269 @@
 @import "tailwindcss";
 
+/* Live GR Divi tokens from Novamira: accent #f072ab, Cardo / Open Sans / Lato.
+   brand-teal class names are kept so templates stay unchanged; the value is pink. */
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #4a4a4a;
+  --surface: #ffffff;
+  --accent: #f072ab;
+  --accent-dark: #d45a96;
+  --ink: #4a4a4a;
+  --muted: #898989;
+  --border: #efefef;
+  --cream: #f9f9f9;
+  --teal-soft: #f5a3c8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-cream: var(--cream);
+  --color-brand-ink: #4a4a4a;
+  --color-brand-teal: #f072ab;
+  --color-brand-teal-soft: #f5a3c8;
+  --font-display: var(--font-cardo), Cardo, Georgia, "Times New Roman", serif;
+  --font-body: var(--font-open-sans), "Open Sans", Helvetica, Arial, sans-serif;
+  --font-nav: var(--font-lato), Lato, Helvetica, Arial, sans-serif;
+  --font-script: var(--font-cardo), Cardo, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-style: italic;
+}
+
+.font-nav {
+  font-family: var(--font-nav);
+}
+
+.pattern-bg {
+  background-color: var(--cream);
+}
+
+.btn-ghost,
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  padding: 0.75rem 1.85rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-ghost:hover,
+.ghost-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-solid,
+.solid-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  border: 1.5px solid var(--accent);
+  padding: 0.75rem 1.85rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-solid:hover,
+.solid-btn:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.prose-block p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.prose-block h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.9s ease-out 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.9s ease-out 0.3s both;
+}
+
+/* Horizontal strips that scroll by touch but should not show a track. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* The heart the atlas traces across the Aegean: the line draws itself, then
+   the nodes settle in behind it. */
+@keyframes atlas-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes atlas-node {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--node-opacity);
+  }
+}
+
+.atlas-heart-line {
+  stroke-dasharray: var(--dash);
+  stroke-dashoffset: var(--dash);
+  animation: atlas-draw 3s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards;
+}
+
+.atlas-heart-node {
+  --node-opacity: 0.55;
+  opacity: 0;
+  animation: atlas-node 0.7s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-heart-line {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .atlas-heart-node {
+    opacity: var(--node-opacity);
+    animation: none;
+  }
+}
+
+@media print {
+  @page {
+    margin: 18mm 16mm;
+  }
+
+  body {
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.6;
+    padding-bottom: 0;
+  }
+
+  header:not(.folio-page),
+  footer,
+  nav,
+  .no-print,
+  .pattern-bg {
+    display: none !important;
+  }
+
+  .folio {
+    max-width: none;
+    padding: 0;
+  }
+
+  .folio-page {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .folio-page + .folio-page {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #555;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
 }
