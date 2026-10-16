@@ -64,7 +64,7 @@ export function Footer() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-display text-xs uppercase tracking-[0.22em] text-brand-ink/70 hover:text-brand-teal"
+              className="font-nav text-xs uppercase tracking-[0.22em] text-brand-ink/70 hover:text-brand-teal"
             >
               {item.label}
             </Link>
@@ -89,7 +89,7 @@ export function Footer() {
 
       <div className="bg-brand-teal py-3" />
       <div className="bg-white py-4 text-center text-xs tracking-wide text-brand-ink/55">
-        Copyright © {new Date().getFullYear()} myhoneymoon, όλα τα δικαιώματα κατοχυρωμένα
+        Designed with Travel Expertise & Passion by SkydreamLabs • SEO Strategy & Optimization by AnotherSEOGuru
       </div>
     </footer>
   );

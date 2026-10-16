@@ -31,7 +31,7 @@ function Chevron() {
 function Indicator({ children, accent }: { children: string; accent?: boolean }) {
   return (
     <span
-      className={`shrink-0 whitespace-nowrap border px-2 py-[3px] font-display text-[10px] uppercase tracking-[0.16em] ${
+      className={`shrink-0 whitespace-nowrap border px-2 py-[3px] font-nav text-[10px] uppercase tracking-[0.16em] ${
         accent
           ? "border-brand-teal/40 bg-brand-teal/10 text-brand-teal"
           : "border-black/15 text-brand-ink/45"
@@ -80,7 +80,7 @@ function MenuRow({
     >
       <span className="min-w-0 flex-1">
         <span
-          className={`block font-display tracking-wide ${
+          className={`block font-nav tracking-wide ${
             size === "lg" ? "text-[26px] leading-tight" : "text-lg"
           } ${current ? "text-brand-teal" : "text-brand-ink"}`}
         >
@@ -228,10 +228,10 @@ export function SiteMenu({ menu }: { menu: SiteMenuModel }) {
                     } ${isCurrent(link.href) ? "bg-brand-teal/5" : ""}`}
                   >
                     <span className="flex items-baseline gap-2">
-                      <span className="font-display text-base leading-tight tracking-wide text-brand-ink">
+                      <span className="font-nav text-base leading-tight tracking-wide text-brand-ink">
                         {link.label}
                       </span>
-                      <span className="font-display text-[11px] text-brand-teal">
+                      <span className="font-nav text-[11px] text-brand-teal">
                         {link.badge}
                       </span>
                     </span>
@@ -295,7 +295,7 @@ export function SiteMenu({ menu }: { menu: SiteMenuModel }) {
                         href={link.href}
                         onClick={close}
                         aria-current={isCurrent(link.href) ? "page" : undefined}
-                        className={`font-display text-3xl tracking-wide transition hover:text-brand-teal ${
+                        className={`font-nav text-3xl tracking-wide transition hover:text-brand-teal ${
                           isCurrent(link.href) ? "text-brand-teal" : "text-brand-ink"
                         }`}
                       >
@@ -318,13 +318,13 @@ export function SiteMenu({ menu }: { menu: SiteMenuModel }) {
                         href={link.href}
                         onClick={close}
                         aria-current={isCurrent(link.href) ? "page" : undefined}
-                        className={`font-display text-xl tracking-wide transition hover:text-brand-teal ${
+                        className={`font-nav text-xl tracking-wide transition hover:text-brand-teal ${
                           isCurrent(link.href) ? "text-brand-teal" : "text-brand-ink"
                         }`}
                       >
                         {link.label}
                       </Link>
-                      <span className="font-display text-xs text-brand-ink/40">
+                      <span className="font-nav text-xs text-brand-ink/40">
                         {link.badge}
                       </span>
                     </li>

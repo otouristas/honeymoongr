@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* Live GR Divi tokens from Novamira: accent #f072ab, Cardo / Open Sans / Lato.
+/* Live GR Divi color tokens from Novamira: accent #f072ab.
+   Source Serif 4 is titles and editorial; Alegreya Sans is body, navigation, and UI.
    brand-teal class names are kept so templates stay unchanged; the value is pink. */
 
 :root {
@@ -29,10 +30,10 @@
   --color-brand-ink: #4a4a4a;
   --color-brand-teal: #f072ab;
   --color-brand-teal-soft: #f5a3c8;
-  --font-display: var(--font-cardo), Cardo, Georgia, "Times New Roman", serif;
-  --font-body: var(--font-open-sans), "Open Sans", Helvetica, Arial, sans-serif;
-  --font-nav: var(--font-lato), Lato, Helvetica, Arial, sans-serif;
-  --font-script: var(--font-cardo), Cardo, Georgia, serif;
+  --font-display: var(--font-source-serif), "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-alegreya-sans), "Alegreya Sans", Helvetica, Arial, sans-serif;
+  --font-nav: var(--font-alegreya-sans), "Alegreya Sans", Helvetica, Arial, sans-serif;
+  --font-script: var(--font-source-serif), "Source Serif 4", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -99,7 +100,7 @@ a {
   color: var(--accent);
   background: transparent;
   padding: 0.75rem 1.85rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -122,7 +123,7 @@ a {
   color: #fff;
   border: 1.5px solid var(--accent);
   padding: 0.75rem 1.85rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
