@@ -64,7 +64,7 @@ export function Footer() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-display text-xs uppercase tracking-[0.22em] text-brand-ink/70 hover:text-brand-teal"
+              className="font-nav text-xs uppercase tracking-[0.22em] text-brand-ink/70 hover:text-brand-teal"
             >
               {item.label}
             </Link>
